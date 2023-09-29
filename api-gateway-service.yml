@@ -1,3 +1,23 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: USER-SERVICE
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/user/**
+        - id: PROFILE-SERVICE
+          uri: lb://PROFILE-SERVICE
+          predicates:
+            - Path=/profile/**
+        - id: EDUCATION-SERVICE
+          uri: lb://EDUCATION-SERVICE
+          predicates:
+            - Path=/education/**
+        - id: EXPERIENCE-SERVICE
+          uri: lb://EXPERIENCE-SERVICE
+          predicates:
+            - Path=/experience/**
 server:
   port: 9191
   error:
@@ -6,19 +26,11 @@ eureka:
   instance:
     instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
   client:
-      serviceUrl:
-        defaultZone: http://localhost:8761/eureka/
+    service-url:
+      defaultZone: http://localhost:8761/eureka/ 
 management:
   endpoints:
     web:
       exposure:
         include: "*"
-spring:
-  cloud:
-    gateway:
-      routes:
-      - id: EDUCATION-SERVICE
-        uri: lb://EDUCATION-SERVICE
-        predicates:
-          - Path=/education/**
  
