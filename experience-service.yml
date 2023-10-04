@@ -31,4 +31,4 @@ management:
       exposure:
         include: refresh,health,info
 api:
-  profile: http://PROFILE-SERVICE/profile
+  profile: http://PROFILE-SERVICE/api/profile
