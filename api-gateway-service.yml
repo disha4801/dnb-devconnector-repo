@@ -18,6 +18,10 @@ spring:
           uri: lb://EXPERIENCE-SERVICE
           predicates:
             - Path=/api/experience/**
+        - id: AUTH-SERVICE
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/authenticate/**
 server:
   port: 9191
   error:
